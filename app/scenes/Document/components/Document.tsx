@@ -672,9 +672,8 @@ const Main = styled.div<MainProps>`
     max-width: ${({ fullWidth }: MainProps) =>
     fullWidth
       ? `100%`
-      : `calc(${EditorStyleHelper.documentWidth} + ${EditorStyleHelper.documentGutter}`
-  };
-    );
+      : `calc(${EditorStyleHelper.documentWidth} + ${EditorStyleHelper.documentGutter})`
+    };
   }
 `;
 
