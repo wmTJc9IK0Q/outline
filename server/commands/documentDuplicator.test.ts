@@ -234,7 +234,7 @@ describe("documentDuplicator", () => {
       collectionId: collection.id,
     });
 
-    const childDocument = await buildDocument({
+    await buildDocument({
       userId: user.id,
       teamId: user.teamId,
       parentDocumentId: original.id,

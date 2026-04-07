@@ -5637,7 +5637,6 @@ describe("#documents.memberships", () => {
 describe("#documents.duplicate", () => {
   it("should require authentication", async () => {
     const res = await server.post("/api/documents.duplicate");
-    const body = await res.json();
     expect(res.status).toEqual(401);
   });
 
