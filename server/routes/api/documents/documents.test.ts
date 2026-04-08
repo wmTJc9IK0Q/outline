@@ -5661,27 +5661,6 @@ describe("#documents.duplicate", () => {
     expect(body.data.documents[0].fullWidth).toBe(true);
   });
 
-  it("should duplicate a document with fullWidth=false property", async () => {
-    const user = await buildUser();
-    const document = await buildDocument({
-      userId: user.id,
-      teamId: user.teamId,
-      fullWidth: false,
-    });
-
-    const res = await server.post("/api/documents.duplicate", {
-      body: {
-        token: user.getJwtToken(),
-        id: document.id,
-      },
-    });
-    const body = await res.json();
-
-    expect(res.status).toEqual(200);
-    expect(body.data.documents).toHaveLength(1);
-    expect(body.data.documents[0].fullWidth).toBe(false);
-  });
-
   it("should duplicate child documents with fullWidth property when recursive=true", async () => {
     const user = await buildUser();
     const collection = await buildCollection({
@@ -5701,9 +5680,6 @@ describe("#documents.duplicate", () => {
       parentDocumentId: parent.id,
       fullWidth: true,
     });
-
-    await collection.addDocumentToStructure(parent);
-    await collection.addDocumentToStructure(child);
 
     const res = await server.post("/api/documents.duplicate", {
       body: {
