@@ -5673,7 +5673,7 @@ describe("#documents.duplicate", () => {
       collectionId: collection.id,
       fullWidth: true,
     });
-    const child = await buildDocument({
+    await buildDocument({
       userId: user.id,
       teamId: user.teamId,
       collectionId: collection.id,
